@@ -1,18 +1,15 @@
 from math import ceil
 entry,exit, plate = {},{},[]
 for i in range(int(input())):
-    activity = input().strip()
-    number = input().strip()
-    plate.append(number)
+    activity = input()
+    number = input()    
     t = int(input())
     if activity == "entry":
-        entry[f"{number}"] = t
+        entry[number] = t
     else :
-        exit[f"{number}"] = t
+        exit[number] = t
 hours, amount = 0,0
-for j in set(plate) :
-    hours = ceil((exit[f"{j}"] - entry[f"{j}"])/60)
+for j in entry.keys() :
+    hours = ceil((exit[j] - entry[j])/60)
     amount += 60 + (hours -1)*30
 print(amount)
-
-
